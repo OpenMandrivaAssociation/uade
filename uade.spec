@@ -1,5 +1,5 @@
 %define name uade
-%define version 2.05
+%define version 2.06
 %define fname %name-%{version}
 %define release %mkrel 1
 
@@ -110,5 +110,3 @@ rm -rf %buildroot
 %defattr(-,root,root)
 %doc ChangeLog
 %{_libdir}/audacious/Input/libuade2.so
-
-
