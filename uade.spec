@@ -1,5 +1,5 @@
 %define name uade
-%define version 2.06
+%define version 2.07
 %define fname %name-%{version}
 %define release %mkrel 1
 
