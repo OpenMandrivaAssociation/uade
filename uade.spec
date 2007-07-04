@@ -12,8 +12,6 @@ URL: http://zakalwe.virtuaalipalvelin.net/uade/
 License: GPL
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-buildroot
-Requires: lha
-BuildRequires: lha
 BuildRequires: libao-devel
 #gw for mod2ogg
 %if %mdkversion >= 200610
