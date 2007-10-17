@@ -1,24 +1,26 @@
 %define name uade
 %define version 2.07
 %define fname %name-%{version}
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Unix Amiga Delitracker Emulator
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://zakalwe.virtuaalipalvelin.net/uade/uade2/%{fname}.tar.bz2
+# gw adapted from GIT, build with new audacious API
+Patch: uade-2.07-audacious1.4.patch
 URL: http://zakalwe.virtuaalipalvelin.net/uade/
 License: GPL
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libao-devel
 #gw for mod2ogg
-%if %mdkversion >= 200610
-#Suggests: vorbis-tools
-#Suggests: normalize
-#Suggests: flac
-#Suggests: lame
+%if %mdkversion >= 200800
+Suggests: vorbis-tools
+Suggests: normalize
+Suggests: flac
+Suggests: lame
 %endif
 
 %description
@@ -67,6 +69,7 @@ This is the input plugin for Audacious Media Player based on uade.
 
 %prep
 %setup -q -n %fname
+%patch -p1
 find songs -name CVS|xargs rm -rfv
 chmod 644 songs/* AUTHORS ChangeLog
 chmod 755 songs/
