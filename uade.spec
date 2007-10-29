@@ -7,10 +7,10 @@ Summary: Unix Amiga Delitracker Emulator
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://zakalwe.virtuaalipalvelin.net/uade/uade2/%{fname}.tar.bz2
+Source0: http://zakalwe.fi/uade/uade2/%{fname}.tar.bz2
 # gw adapted from GIT, build with new audacious API
 Patch: uade-2.07-audacious1.4.patch
-URL: http://zakalwe.virtuaalipalvelin.net/uade/
+URL: http://zakalwe.fi/uade/
 License: GPL
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-buildroot
