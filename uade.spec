@@ -72,14 +72,13 @@ chmod 644 songs/* AUTHORS ChangeLog
 chmod 755 songs/
 %build
 export CFLAGS="%optflags"
-export CC="gcc -DI_AM_A_THIRD_PARTY_DEVELOPER_WHO_NEEDS_TO_BE_KICKED_IN_THE_HEAD_BY_CHUCK_NORRIS"
-./configure --prefix=%{_prefix} --libdir=%_libdir --package-prefix=%buildroot --with-ao
+./configure --prefix=%{_prefix} --libdir=%_libdir --package-prefix=%buildroot
 %make
 
 %install
 rm -rf %buildroot
 make install PACKAGEPREFIX=%buildroot BINDIR=%buildroot%_bindir DATADIR=%buildroot%_datadir/uade2 XMMSPLUGINDIR=%buildroot%_libdir/xmms/Input/
-install -m 755 src/frontends/mod2ogg/mod2ogg2.sh %buildroot%_bindir/mod2ogg
+mv %buildroot%_bindir/mod2ogg2.sh %buildroot%_bindir/mod2ogg
 %if %_lib != lib
 mv %buildroot%_prefix/lib/pkgconfig %buildroot%_libdir
 %endif
@@ -93,7 +92,6 @@ rm -rf %buildroot
 %doc songs
 %{_bindir}/uade123
 %_bindir/mod2ogg
-%_bindir/mod2ogg2
 %{_datadir}/uade2
 %_prefix/lib/uade2/
 %_libdir/pkgconfig/uade.pc
