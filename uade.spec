@@ -11,7 +11,6 @@ Source0: http://zakalwe.fi/uade/uade2/%{fname}.tar.bz2
 URL: http://zakalwe.fi/uade/
 License: GPL
 Group: Sound
-BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libao-devel
 #gw for mod2ogg
 %if %mdkversion >= 200800
