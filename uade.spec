@@ -12,7 +12,7 @@ URL: http://zakalwe.fi/uade/
 License: GPL
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-buildroot
-BuildRequires: libfuse-devel
+BuildRequires: fuse-devel
 BuildRequires: libao-devel
 #gw for mod2ogg
 %if %mdkversion >= 200800
