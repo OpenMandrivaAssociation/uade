@@ -1,5 +1,5 @@
 %define name uade
-%define version 2.09
+%define version 2.10
 %define fname %name-%{version}
 %define release %mkrel 1
 
@@ -12,6 +12,7 @@ URL: http://zakalwe.fi/uade/
 License: GPL
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-buildroot
+BuildRequires: libfuse-devel
 BuildRequires: libao-devel
 #gw for mod2ogg
 %if %mdkversion >= 200800
@@ -77,7 +78,7 @@ export CFLAGS="%optflags"
 
 %install
 rm -rf %buildroot
-make install PACKAGEPREFIX=%buildroot BINDIR=%buildroot%_bindir DATADIR=%buildroot%_datadir/uade2 XMMSPLUGINDIR=%buildroot%_libdir/xmms/Input/
+make install PACKAGEPREFIX=%buildroot BINDIR=%buildroot%_bindir DATADIR=%buildroot%_datadir/uade2 XMMSPLUGINDIR=%buildroot%_libdir/xmms/Input/ AUDACIOUSPLUGINDIR=%buildroot%_libdir/audacious/Input/
 mv %buildroot%_bindir/mod2ogg2.sh %buildroot%_bindir/mod2ogg
 %if %_lib != lib
 mv %buildroot%_prefix/lib/pkgconfig %buildroot%_libdir
@@ -91,11 +92,13 @@ rm -rf %buildroot
 %doc AUTHORS ChangeLog
 %doc songs
 %{_bindir}/uade123
+%{_bindir}/uadefs
 %_bindir/mod2ogg
 %{_datadir}/uade2
 %_prefix/lib/uade2/
 %_libdir/pkgconfig/uade.pc
 %_mandir/man1/uade123.1*
+%_mandir/man1/uadefs.1*
 
 %files -n xmms-uade
 %defattr(-,root,root)
