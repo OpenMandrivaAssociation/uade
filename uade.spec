@@ -1,13 +1,14 @@
 %define name uade
 %define version 2.13
 %define fname %name-%{version}
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Unix Amiga Delitracker Emulator
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://zakalwe.fi/uade/uade2/%{fname}.tar.bz2
+Patch: uade-2.13-new-audacious.patch
 URL: http://zakalwe.fi/uade/
 License: GPL
 Group: Sound
@@ -68,6 +69,7 @@ This is the input plugin for Audacious Media Player based on uade.
 
 %prep
 %setup -q -n %fname
+%patch -p1
 find songs -name CVS|xargs rm -rfv
 chmod 644 songs/* AUTHORS ChangeLog
 chmod 755 songs/
