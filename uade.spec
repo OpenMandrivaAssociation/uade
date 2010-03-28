@@ -1,7 +1,7 @@
 %define name uade
 %define version 2.13
 %define fname %name-%{version}
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary: Unix Amiga Delitracker Emulator
 Name: %{name}
