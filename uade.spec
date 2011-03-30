@@ -48,6 +48,7 @@ new players is just copying files to your 'players' directory.
 
 This is the input plugin for xmms based on uade.
 
+%if 0
 %package -n audacious-uade
 Group: Sound
 Summary: Unix Amiga Delitracker Emulator Audacious Media Player input plugin
@@ -66,6 +67,7 @@ in some directory and you can copy/remove them as you wish. "Installing"
 new players is just copying files to your 'players' directory.
 
 This is the input plugin for Audacious Media Player based on uade.
+%endif
 
 %prep
 %setup -q -n %fname
@@ -108,7 +110,9 @@ rm -rf %buildroot
 %{_libdir}/xmms/Input/libuade2.so
 %{_bindir}/uadexmmsadd
 
+%if 0
 %files -n audacious-uade
 %defattr(-,root,root)
 %doc ChangeLog
 %{_libdir}/audacious/Input/libuade2.so
+%endif
