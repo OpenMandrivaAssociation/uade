@@ -1,0 +1,45 @@
+diff -p -up uade-2.13/src/frontends/audacious/plugin.c~ uade-2.13/src/frontends/audacious/plugin.c
+--- uade-2.13/src/frontends/audacious/plugin.c~	2009-10-29 22:01:12.000000000 +0100
++++ uade-2.13/src/frontends/audacious/plugin.c	2010-02-03 10:23:25.000000000 +0100
+@@ -45,7 +45,6 @@
+ static int initialize_song(char *filename);
+ static void uade_cleanup(void);
+ static void uade_file_info(char *filename);
+-static void uade_get_song_info(char *filename, char **title, int *length);
+ static void uade_init(void);
+ static int uadeaudacious_is_our_file(char *filename);
+ 
+@@ -85,7 +84,6 @@ static InputPlugin uade_ip = {
+   .seek = uade_seek,
+   .get_time = uade_get_time,
+   .cleanup = uade_cleanup,
+-  .get_song_info = uade_get_song_info,
+   .file_info_box = uade_file_info,
+ };
+ 
+@@ -978,25 +976,6 @@ static int uade_get_time(void)
+   return playhandle->output->output_time();
+ }
+ 
+-
+-static void uade_get_song_info(char *filename, char **title, int *length)
+-{
+-  char tempname[PATH_MAX];
+-  char *t;
+-
+-  if (strncmp(filename, "uade://", 7) == 0)
+-    filename += 7;
+-
+-  strlcpy(tempname, filename, sizeof tempname);
+-  t = basename(tempname);
+-  if (t == NULL)
+-    t = filename;
+-  if ((*title = strdup(t)) == NULL)
+-    plugindebug("Not enough memory for song info.\n");
+-  *length = -1;
+-}
+-
+-
+ #if __AUDACIOUS_PLUGIN_API__ >= 6
+ static void uade_info_string(InputPlayback *playhandle)
+ #else
