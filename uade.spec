@@ -9,7 +9,7 @@ Version: %{version}
 Release: %{release}
 Source0: http://zakalwe.fi/uade/uade2/%{fname}.tar.bz2
 Patch: uade-2.13-new-audacious.patch
-URL: http://zakalwe.fi/uade/
+URL: https://zakalwe.fi/uade/
 License: GPL
 Group: Sound
 BuildRequires: fuse-devel
