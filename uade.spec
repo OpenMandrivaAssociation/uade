@@ -12,6 +12,11 @@ Patch: uade-2.13-new-audacious.patch
 URL: https://zakalwe.fi/uade/
 License: GPL
 Group: Sound
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: fuse-devel
 BuildRequires: libao-devel
 #gw for mod2ogg
